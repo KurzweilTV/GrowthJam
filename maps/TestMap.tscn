@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://objects/Object.tscn" type="PackedScene" id=1]
+[ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
+
+[node name="TestMap" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 272, 304 )
+
+[node name="Object" parent="." instance=ExtResource( 1 )]
+position = Vector2( 568, 303 )
+
+[node name="Object2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 866, 128 )
+
+[node name="Object3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 387, 592 )
+
+[node name="Object4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 851, 502 )
