@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://objects/Object.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://actors/NPC.tscn" type="PackedScene" id=3]
 [ext_resource path="res://actors/Crop.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Witch/Witch.tscn" type="PackedScene" id=5]
 
 [node name="TestMap" type="Node2D"]
 
@@ -18,3 +19,6 @@ position = Vector2( 508, 607 )
 
 [node name="Crop" parent="." instance=ExtResource( 4 )]
 position = Vector2( 689, 197 )
+
+[node name="Object2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 295, 194 )

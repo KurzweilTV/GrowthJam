@@ -21,7 +21,7 @@ func _interact():
 	$debug_label.hide()
 
 func use_dialog():
-	var dialog = get_parent().get_node("Dialog")
+	var dialog = $Sprite/Dialog
 	
 	if dialog:
 		dialog.start()
