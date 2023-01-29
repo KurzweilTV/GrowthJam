@@ -21,8 +21,10 @@ func _interact():
 	$debug_label.hide()
 
 func use_dialog():
-	var dialog = $Sprite/Dialog
+	var dialog = $Sprite/DialogUI
 	
 	if dialog:
 		dialog.start()
+		var shoppingList = dialog.shoppingList
+		print(shoppingList)
 		

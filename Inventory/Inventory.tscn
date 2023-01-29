@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://art/UI/UI_elements.png" type="Texture" id=1]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2( 172, 75 )
+
+[node name="GridContainer" type="GridContainer" parent="."]
+margin_right = 97.0
+margin_bottom = 96.0
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer"]
+margin_right = 96.0
+margin_bottom = 96.0
+texture = ExtResource( 1 )

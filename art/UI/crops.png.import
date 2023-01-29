@@ -1,0 +1,19 @@
+[remap]
+
+importer="texture_atlas"
+type="Texture"
+path="res://.import/crops.png-20ee6c6b582ceafe6f66e04edac6bca1.res"
+group_file="res://art/cropatlas.png"
+valid=true
+[deps]
+
+
+source_file="res://art/UI/crops.png"
+dest_files=[ "res://.import/crops.png-20ee6c6b582ceafe6f66e04edac6bca1.res" ]
+
+[params]
+
+atlas_file="res://art/cropatlas.png"
+import_mode=0
+crop_to_region=false
+trim_alpha_border_from_region=true

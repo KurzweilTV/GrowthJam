@@ -1,14 +1,18 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Dialog/DialogWitch.gd" type="Script" id=1]
 [ext_resource path="res://art/box-highres.png" type="Texture" id=2]
 [ext_resource path="res://art/witch/lul.png" type="Texture" id=3]
+[ext_resource path="res://art/UI/crops.png" type="Texture" id=4]
+[ext_resource path="res://art/UI/invBg.png" type="Texture" id=5]
+[ext_resource path="res://art/UI/UI_elements.png" type="Texture" id=6]
 
-[node name="Dialog" type="CanvasLayer"]
+[node name="DialogUI" type="CanvasLayer"]
 script = ExtResource( 1 )
 d_file = "res://Dialog/json/witchtext.json"
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
+visible = false
 margin_left = 192.0
 margin_top = 552.0
 margin_right = 1088.0
@@ -42,5 +46,45 @@ texture = ExtResource( 3 )
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.105
 one_shot = true
+
+[node name="inventory_container" type="NinePatchRect" parent="."]
+margin_right = 573.0
+margin_bottom = 247.0
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 96, 97 )
+patch_margin_left = 15
+patch_margin_top = 14
+patch_margin_right = 16
+patch_margin_bottom = 17
+
+[node name="inventory_container" type="Control" parent="inventory_container"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 18.0
+margin_top = 14.0
+margin_right = -14.0
+margin_bottom = -15.0
+
+[node name="slot_container" type="Control" parent="inventory_container/inventory_container"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 51.0
+
+[node name="inventory_slot" type="TextureRect" parent="inventory_container/inventory_container/slot_container"]
+margin_right = 96.0
+margin_bottom = 96.0
+rect_scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 5 )
+
+[node name="ViewportContainer" type="ViewportContainer" parent="inventory_container/inventory_container/slot_container/inventory_slot"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Sprite" type="Sprite" parent="inventory_container/inventory_container/slot_container/inventory_slot/ViewportContainer"]
+position = Vector2( 48, 49 )
+scale = Vector2( 2.87931, 3.3 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 66, 488, 29, 20 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

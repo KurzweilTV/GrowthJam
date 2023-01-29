@@ -11,6 +11,9 @@ var textures = {}
 
 var initial_dialog = []
 var ingredients = []
+var shoppingList = []
+var possibleItems = ["Eye of newt", "Spider silk", "Baby's breath", "Nightshade", "Mandrake", "Rat tail"]
+var chatFoodStr = ""
 
 var witch1 = load("res://art/witch/lul.png")
 var witch2 = load("res://art/witch/knife.png")
@@ -18,9 +21,6 @@ var witch3 = load("res://art/witch/cash.png")
 var witch4 = load("res://art/witch/muah.png")
 
 
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	$NinePatchRect.visible = false
 	textures["witch1"] = witch1
@@ -48,13 +48,15 @@ func load_dialog():
 	if file.file_exists(d_file):
 		file.open(d_file, file.READ)
 		return parse_json(file.get_as_text())
-		
+
+
 func _input(event):
 	if not d_active:
 		return
 	if event.is_action_pressed("ui_accept"):
 		next_script()
-		
+
+
 func next_script():
 	if interactCount < 1:
 		if (current_dialog_id) >= len(initial_dialog)-1:
@@ -68,30 +70,40 @@ func next_script():
 			$NinePatchRect/Text.text = initial_dialog[current_dialog_id]['text']
 			$NinePatchRect/Sprite.texture = textures[initial_dialog[current_dialog_id]['emotion']]
 			print(current_dialog_id)
-
-
 	if interactCount >= 1:
+		if shoppingList.empty() == false: 
+			var listStr = ", ".join(shoppingList)
+#			$NinePatchRect/Name.text = shoppingList['name']
+			$NinePatchRect/Text.text = "Idiot I'm still waiting for... " + chatFoodStr
+			$NinePatchRect/Sprite.texture = textures["witch2"]
+		if shoppingList.empty() == true:
+			create_order()
+#			$NinePatchRect/Name.text = shoppingList['name']
+			var listStr = ", ".join(shoppingList)
+			$NinePatchRect/Text.text = "Bring me... " + chatFoodStr
+			$NinePatchRect/Sprite.texture = textures["witch1"]
+
 		$NinePatchRect.visible = true
 		current_dialog_id = 0
-		var randoRequest = randi() % ingredients.size()
-		$NinePatchRect/Name.text = ingredients[randoRequest]['name']
-		$NinePatchRect/Text.text = ingredients[randoRequest]['text']
-		$NinePatchRect/Sprite.texture = textures[ingredients[randoRequest]['emotion']]
+#		var randoRequest = randi() % ingredients.size()
+#		$NinePatchRect/Name.text = ingredients[randoRequest]['name']
+#		$NinePatchRect/Text.text = "Bring me... " + ingredients[randoRequest]['text']
+#		$NinePatchRect/Sprite.texture = textures[ingredients[randoRequest]['emotion']]
 		current_dialog_id += 1
 		print(current_dialog_id)
 		if current_dialog_id >= 1:
 			$Timer.start()
 			$NinePatchRect.visible = false
-		
-#	$NinePatchRect.visible = true
 
+func create_order():
+	var number_of_ingredients = randi() % possibleItems.size()
+	for x in range(number_of_ingredients):
+		var random_index = randi() % 3
+		var howMany = randi() % 10
+		var oneItem = possibleItems[random_index]
+		shoppingList.append([oneItem, howMany])
+		chatFoodStr += str(howMany) + " " + str(oneItem) + "\n"
+	return shoppingList
 	
-#	$NinePatchRect/Name.text = dialog[current_dialog_id]['name']
-#	$NinePatchRect/Text.text = dialog[current_dialog_id]['text']
-#	$NinePatchRect/Sprite.texture = textures[dialog[current_dialog_id]['emotion']]
-	
-	
-
-
 func _on_Timer_timeout():
 	d_active = false
