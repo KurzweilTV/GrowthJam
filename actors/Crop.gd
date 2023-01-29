@@ -1,7 +1,8 @@
 extends StaticBody2D
 
-var crop_states = ["Weeds", "Dirt", "Tilled", "Watered", "Growing", "Finished"]
+var crop_states = ["Dirt", "Tilled", "Growing", "Finished"]
 var current_state = crop_states[0]
+var watered = false
 
 func _process(delta):
 	set_crop_texture(current_state)
@@ -17,9 +18,9 @@ func _interact():
 
 func advance_crop_state():
 	var current_state_index = crop_states.find(current_state)
-	if current_state_index < len(crop_states) - 1:
+	if current_state_index < len(crop_states) - 2:
 		current_state = crop_states[current_state_index + 1]
-		if current_state_index == 3:
+		if crop_states[current_state_index + 1] == "Growing":
 			$GrowTimer.start()
 
 func _on_GrowTimer_timeout():
