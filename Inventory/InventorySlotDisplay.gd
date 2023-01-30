@@ -9,7 +9,7 @@ func displayItem(item):
 	if item is ITEM:
 		itemTextureRect.texture = item.ITEM_TEXTURE
 	else:
-		itemTextureRect.texture = load("res://art/box-highres.png")
+		itemTextureRect.texture = load("res://Inventory/Item/Sprites/emptyinvslot.png")
 
 
 func get_drag_data(_position):
