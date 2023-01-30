@@ -25,4 +25,6 @@ func use_dialog():
 	
 	if dialog:
 		dialog.start()
+		var shoppingList = dialog.shoppingList
+		print(shoppingList)
 		

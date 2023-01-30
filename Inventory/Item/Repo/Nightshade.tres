@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Inventory/Item/Classes/item_class.gd" type="Script" id=1]
+[ext_resource path="res://Inventory/Item/Sprites/15.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+ITEM_NAME = "Nightshade"
+ITEM_TEXTURE = ExtResource( 2 )
+QUANTITY = 2
+HOVER_TEXT = "Good for poisoning your enemies. Or your friends, I won't judge!"

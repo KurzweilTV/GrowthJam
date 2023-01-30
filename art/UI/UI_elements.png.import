@@ -1,0 +1,19 @@
+[remap]
+
+importer="texture_atlas"
+type="Texture"
+path="res://.import/UI_elements.png-ab83f0cc6a16d7fd636c6a07b04b912c.res"
+group_file="res://art/UI/UIatlas.png"
+valid=true
+[deps]
+
+
+source_file="res://art/UI/UI_elements.png"
+dest_files=[ "res://.import/UI_elements.png-ab83f0cc6a16d7fd636c6a07b04b912c.res" ]
+
+[params]
+
+atlas_file="res://art/UI/UIatlas.png"
+import_mode=0
+crop_to_region=false
+trim_alpha_border_from_region=true
