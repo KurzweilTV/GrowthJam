@@ -74,13 +74,13 @@ func next_script():
 		if shoppingList.empty() == false: 
 			var listStr = ", ".join(shoppingList)
 #			$NinePatchRect/Name.text = shoppingList['name']
-			$NinePatchRect/Text.text = "Idiot I'm still waiting for... " + chatFoodStr
+			$NinePatchRect/Text.text = "Idiot I'm still waiting for... \n" + chatFoodStr
 			$NinePatchRect/Sprite.texture = textures["witch2"]
 		if shoppingList.empty() == true:
 			create_order()
 #			$NinePatchRect/Name.text = shoppingList['name']
 			var listStr = ", ".join(shoppingList)
-			$NinePatchRect/Text.text = "Bring me... " + chatFoodStr
+			$NinePatchRect/Text.text = "Bring me... \n" + chatFoodStr
 			$NinePatchRect/Sprite.texture = textures["witch1"]
 
 		$NinePatchRect.visible = true

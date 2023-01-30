@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Inventory/Item/Classes/item_class.gd" type="Script" id=1]
+[ext_resource path="res://Inventory/Item/Sprites/3.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+ITEM_NAME = "Starfruit"
+ITEM_TEXTURE = ExtResource( 2 )
+QUANTITY = 0
+HOVER_TEXT = "So close, that is a shape~ <3"
