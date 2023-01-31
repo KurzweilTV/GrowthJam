@@ -17,20 +17,23 @@ func _physics_process(_delta):
 		facingDir = Vector2(0, -1)
 		$AnimatedSprite.play("walk_up")
 	
-	if Input.is_action_pressed("move_down"):
+	elif Input.is_action_pressed("move_down"):
 		move_dir.y += 1
 		facingDir = Vector2(0, 1)
 		$AnimatedSprite.play("walk_down")
 	
-	if Input.is_action_pressed("move_left"):
+	elif Input.is_action_pressed("move_left"):
 		move_dir.x -= 1
 		facingDir = Vector2(-1, 0)
 		$AnimatedSprite.play("walk_left")
 	
-	if Input.is_action_pressed("move_right"):
+	elif Input.is_action_pressed("move_right"):
 		move_dir.x += 1
 		facingDir = Vector2(1, 0)
 		$AnimatedSprite.play("walk_right")
+		
+	else:
+		$AnimatedSprite.stop()
 		
 	move_dir = move_dir.normalized()
 	move_and_slide(move_dir * move_speed)
