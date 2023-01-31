@@ -21,7 +21,17 @@ margin_left = -47.0
 margin_top = -69.0
 margin_right = 47.0
 margin_bottom = -55.0
-text = "*INTERACTED*"
+text = "*PICKED UP*"
+align = 1
+valign = 1
+
+[node name="item_label" type="Label" parent="."]
+margin_left = -47.0
+margin_top = -60.0
+margin_right = 47.0
+margin_bottom = -29.0
+text = "Temp
+"
 align = 1
 valign = 1
 

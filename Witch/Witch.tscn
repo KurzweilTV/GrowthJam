@@ -8,10 +8,11 @@
 extents = Vector2( 32, 32 )
 
 [node name="Object" type="StaticBody2D"]
+position = Vector2( 4, -3 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 9.53674e-07, -0.5 )
+position = Vector2( -28, -47 )
 scale = Vector2( 0.589286, 0.580357 )
 texture = ExtResource( 1 )
 

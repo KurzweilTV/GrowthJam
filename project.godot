@@ -30,6 +30,10 @@ config/name="Growth Jam"
 run/main_scene="res://maps/TestMap.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+TempInventory="*res://temp_inventory.gd"
+
 [display]
 
 window/size/width=1280
