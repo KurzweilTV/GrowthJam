@@ -10,7 +10,6 @@ color = Color( 0, 0, 0, 1 )
 script = ExtResource( 2 )
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -20,7 +19,7 @@ size_flags_vertical = 3
 [node name="InventoryDisplay" parent="CenterContainer" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 616.0
-margin_top = 336.0
-margin_right = 664.0
-margin_bottom = 384.0
+margin_left = 595.0
+margin_top = 315.0
+margin_right = 685.0
+margin_bottom = 405.0
