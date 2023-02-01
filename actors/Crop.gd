@@ -15,12 +15,15 @@ func set_crop_texture(state):
 
 func _interact():
 	if current_state == "Dirt" and TempInventory.playerinv.has("Plow"):
-		advance_crop_state()
+		advance_crop_state()	
+		return
 	if current_state == "Tilled" and TempInventory.playerinv.has("Bucket"):
 		advance_crop_state()
 		watered = true
+		return
 	if current_state == "Watered" and TempInventory.playerinv.has("Seeds"):
 		advance_crop_state()
+		return
 
 		
 func advance_crop_state():
