@@ -18,7 +18,7 @@ position = Vector2( 947, 333 )
 position = Vector2( 690, 197 )
 
 [node name="Witch" parent="." instance=ExtResource( 5 )]
-position = Vector2( 58, 51 )
+position = Vector2( 83, 87 )
 
 [node name="Plow" parent="." instance=ExtResource( 1 )]
 position = Vector2( 243, 43 )
