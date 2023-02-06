@@ -14,11 +14,20 @@ position = Vector2( 272, 304 )
 [node name="NPC" parent="." instance=ExtResource( 3 )]
 position = Vector2( 947, 333 )
 
-[node name="Object" parent="." instance=ExtResource( 1 )]
-position = Vector2( 508, 607 )
-
 [node name="Crop" parent="." instance=ExtResource( 4 )]
-position = Vector2( 689, 197 )
+position = Vector2( 690, 197 )
 
-[node name="Object2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 295, 194 )
+[node name="Witch" parent="." instance=ExtResource( 5 )]
+position = Vector2( 83, 87 )
+
+[node name="Plow" parent="." instance=ExtResource( 1 )]
+position = Vector2( 243, 43 )
+tool_name = "Plow"
+
+[node name="Seeds" parent="." instance=ExtResource( 1 )]
+position = Vector2( 467, 40 )
+tool_name = "Seeds"
+
+[node name="Bucket" parent="." instance=ExtResource( 1 )]
+position = Vector2( 354, 48 )
+tool_name = "Bucket"

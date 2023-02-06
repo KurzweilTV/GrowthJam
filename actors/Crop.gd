@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-var crop_states = ["Dirt", "Tilled", "Growing", "Finished"]
+var crop_states = ["Dirt", "Tilled", "Watered", "Growing", "Finished"]
 var current_state = crop_states[0]
 var watered = false
 
@@ -14,8 +14,18 @@ func set_crop_texture(state):
 	$debuglabel.text = str(current_state)
 
 func _interact():
-	advance_crop_state()
+	if current_state == "Dirt" and TempInventory.playerinv.has("Plow"):
+		advance_crop_state()	
+		return
+	if current_state == "Tilled" and TempInventory.playerinv.has("Bucket"):
+		advance_crop_state()
+		watered = true
+		return
+	if current_state == "Watered" and TempInventory.playerinv.has("Seeds"):
+		advance_crop_state()
+		return
 
+		
 func advance_crop_state():
 	var current_state_index = crop_states.find(current_state)
 	if current_state_index < len(crop_states) - 2:

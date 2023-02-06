@@ -36,14 +36,16 @@ config/name="Growth Jam"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
-<<<<<<< Updated upstream
-=======
 [autoload]
 
 TempInventory="*res://temp_inventory.gd"
 SignalManager="*res://Managers/signal_manager.gd"
 
->>>>>>> Stashed changes
+[autoload]
+
+TempInventory="*res://temp_inventory.gd"
+
+
 [display]
 
 window/size/width=1280
