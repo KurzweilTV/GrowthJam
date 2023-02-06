@@ -1,9 +1,31 @@
-extends ColorRect
+extends NinePatchRect
 
-var inventory = preload("res://Inventory/Inventory.tres")
+export(NodePath) onready var InventoryContainer = get_node(InventoryContainer) as Control
 
-func can_drop_data(_position, data):
-	return data is Dictionary and data.has("item")
+var current_inventories : Array = []
+
+func _ready():
+	SignalManager.connect("inventory_opened", self, "_on_inventory_opened")
+
+func close():
+	for i in current_inventories:
+		InventoryContainer.remove_child(i)
+	current_inventories = []
+	hide()
+
+
+func _on_inventory_opened(inventory : Inventory):
+	if current_inventories.size() == 0:
+		rect_size.y = 20
 	
-func drop_data(_position, data):
-	inventory.set_item(data.item_index, data.item)
+	if current_inventories.has(inventory):
+		return
+	InventoryContainer.add_child(inventory)
+	current_inventories.append(inventory)
+	rect_size.y += inventory.rect_size.y + InventoryContainer.get_constant("separation")
+	show()
+
+
+
+func _on_Close_pressed():
+	close()

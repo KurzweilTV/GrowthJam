@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://InventoryPlayer.gd" type="Script" id=1]
+[ext_resource path="res://Inventory/Inventory.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Inventory/InventoryContainer.tscn" type="PackedScene" id=3]
+
+[node name="InventoryPlayer" instance=ExtResource( 3 )]
+script = ExtResource( 1 )
+inventory = NodePath("inventory_container/Inventory")
+
+[node name="Inventory" parent="inventory_container" index="0" instance=ExtResource( 2 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 169.0
+margin_bottom = 16.0
+inventory_name = "Pockets"
+size = 20

@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Dialog/DialogWitch.gd" type="Script" id=1]
 [ext_resource path="res://art/box-highres.png" type="Texture" id=2]
 [ext_resource path="res://art/witch/lul.png" type="Texture" id=3]
-[ext_resource path="res://Inventory/InventoryDisplay.tscn" type="PackedScene" id=4]
 
 [node name="DialogUI" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -43,11 +42,5 @@ texture = ExtResource( 3 )
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.105
 one_shot = true
-
-[node name="InventoryDisplay" parent="." instance=ExtResource( 4 )]
-margin_left = 523.0
-margin_top = 259.0
-margin_right = -466.0
-margin_bottom = -220.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
