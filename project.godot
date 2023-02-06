@@ -41,11 +41,6 @@ config/icon="res://icon.png"
 TempInventory="*res://temp_inventory.gd"
 SignalManager="*res://Managers/signal_manager.gd"
 
-[autoload]
-
-TempInventory="*res://temp_inventory.gd"
-
-
 [display]
 
 window/size/width=1280
