@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Inventory/Item.gd" type="Script" id=1]
+[ext_resource path="res://art/UI/71.png" type="Texture" id=2]
+
+[node name="Item" type="TextureRect"]
+margin_left = 7.0
+margin_top = 5.0
+margin_right = 18.0
+margin_bottom = 20.0
+texture = ExtResource( 2 )
+script = ExtResource( 1 )
+item_name = "Nightshade Seed"
+item_description = "Plant this to grow nightshade"
+item_ID = "S_NIGHT"

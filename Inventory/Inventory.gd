@@ -1,27 +1,32 @@
-extends Resource
-class_name Inventory
+class_name Inventory extends NinePatchRect
 
-signal items_changed(indexes)
+var inventory_slot_res = preload("res://Inventory/inventory_slot.tscn")
 
-export(Array, Resource) var items = [
-	null, null, null, null, null, null, null, null, null,
-]
+export(String) var inventory_name
+export(int) var size = 0 setget set_inventory_size
 
-func set_item(item_index, item):
-	var prevItem = items[item_index]
-	items[item_index] = item
-	emit_signal("items_changed", [item_index])
-	return prevItem
+export(NodePath) onready var title = get_node(title) as Label
+export(NodePath) onready var slot_container = get_node(slot_container) as Control
+
+var slots : Array = []
+
+func _ready():
+	for s in slots:
+		slot_container.add_child(s)
+	title.text = "- " + inventory_name + " -"
+	SignalManager.emit_signal("inventory_ready", self)
+	
+	
+func set_inventory_size(value):
+	size = value
+	rect_min_size.y = 40 + (ceil(size / 5.0) - 1) * 40
+	for s in size:
+		var new_slot = inventory_slot_res.instance()
+		slots.append(new_slot)
 
 
-func swap_items(item_index, target_item_index):
-	var targetItem = items[target_item_index]
-	var item = items[item_index]
-	items[target_item_index] = item
-	items[item_index] = targetItem
-
-func remove_item(item_index):
-	var prevItem = items[item_index]
-	items[item_index] = null
-	emit_signal("items_changed", [item_index])
-	return prevItem
+func add_item(item):
+	for s in slots:
+		if not s.item:
+			s.set_item(item)
+			return

@@ -85,10 +85,6 @@ func next_script():
 
 		$NinePatchRect.visible = true
 		current_dialog_id = 0
-#		var randoRequest = randi() % ingredients.size()
-#		$NinePatchRect/Name.text = ingredients[randoRequest]['name']
-#		$NinePatchRect/Text.text = "Bring me... " + ingredients[randoRequest]['text']
-#		$NinePatchRect/Sprite.texture = textures[ingredients[randoRequest]['emotion']]
 		current_dialog_id += 1
 		print(current_dialog_id)
 		if current_dialog_id >= 1:
@@ -96,11 +92,13 @@ func next_script():
 			$NinePatchRect.visible = false
 
 func create_order():
-	var number_of_ingredients = randi() % possibleItems.size()
+	var items_left = possibleItems.duplicate()
+	var number_of_ingredients = int(rand_range(1, possibleItems.size()))
 	for x in range(number_of_ingredients):
-		var random_index = randi() % 3
-		var howMany = randi() % 10
-		var oneItem = possibleItems[random_index]
+		var random_index = int(rand_range(1, items_left.size()))
+		var howMany = int(rand_range(1, 6))
+		var oneItem = items_left[random_index]
+		items_left.remove(random_index)
 		shoppingList.append([oneItem, howMany])
 		chatFoodStr += str(howMany) + " " + str(oneItem) + "\n"
 	return shoppingList
